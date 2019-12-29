@@ -53,9 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Shim.cs" />
+    <Compile Include="ShimPlugin.cs" />
     <Compile Include="ShimPluginCommand.cs" />
-    <Compile Include="PluginShim.cs" />
+    <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

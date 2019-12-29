@@ -6,7 +6,7 @@ using Rhino.Geometry;
 using Rhino.Input;
 using Rhino.Input.Custom;
 
-namespace PluginShim
+namespace Shimmy
 {
     /// <summary>
     /// Find "PluginCommand" and replace all instances in the current document 

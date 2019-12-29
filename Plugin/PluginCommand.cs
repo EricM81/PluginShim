@@ -32,7 +32,6 @@ namespace Plugin
         protected override Result RunCommand(RhinoDoc doc, RunMode mode)
         {
             RhinoApp.WriteLine("Hello World");
-            RhinoApp.WriteLine(@"<o>");
 
             return Result.Success;
         }

@@ -1,18 +1,18 @@
-﻿namespace PluginShim
+﻿namespace Shimmy
 {
 
     #region Don't touch, you only need one
 
-    public class PluginShim : Rhino.PlugIns.PlugIn
+    public class Plugin : Rhino.PlugIns.PlugIn
 
     {
-        public PluginShim()
+        public Plugin()
         {
             Instance = this;
         }
 
 
-        public static PluginShim Instance
+        public static Plugin Instance
         {
             get; private set;
         }

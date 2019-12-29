@@ -9,7 +9,7 @@ using Rhino.Commands;
 using System.Reflection;
 
 
-namespace PluginShim
+namespace Shimmy
 {
     /// <summary>
     /// You can use this to shim multiple plugins.
@@ -50,7 +50,7 @@ namespace PluginShim
         public static Result Execute(string commandClassName, RhinoDoc doc, RunMode mode)
         {
             if (File.Exists(pathToObjRhp)) { File.Delete(pathToObjRhp); }
-            if (File.Exists(pathToObjPdb)) {File.Delete(pathToObjPdb); }
+            if (File.Exists(pathToObjPdb)) { File.Delete(pathToObjPdb); }
 
             Assembly asm = Assembly.Load(File.ReadAllBytes(pathToBinRhp), File.ReadAllBytes(pathToBinPdb));
             Object obj = asm.CreateInstance(commandClassName);
