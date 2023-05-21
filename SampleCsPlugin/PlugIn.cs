@@ -1,4 +1,7 @@
-﻿namespace Plugin
+﻿using Rhino;
+using System;
+
+namespace SampleCsPlugin
 {
     ///<summary>
     /// <para>Every RhinoCommon .rhp assembly must have one and only one PlugIn-derived
@@ -8,19 +11,15 @@
     /// attributes in AssemblyInfo.cs (you might need to click "Project" ->
     /// "Show All Files" to see it in the "Solution Explorer" window).</para>
     ///</summary>
-    public class PlugIn : Rhino.PlugIns.PlugIn
-
+    public class SampleCsPlugin : Rhino.PlugIns.PlugIn
     {
-        public PlugIn()
+        public SampleCsPlugin()
         {
             Instance = this;
         }
 
-        ///<summary>Gets the only instance of the PlugIn plug-in.</summary>
-        public static PlugIn Instance
-        {
-            get; private set;
-        }
+        ///<summary>Gets the only instance of the DiscourseExamplesPlugin plug-in.</summary>
+        public static SampleCsPlugin Instance { get; private set; }
 
         // You can override methods here to change the plug-in behavior on
         // loading and shut down, add options pages to the Rhino _Option command

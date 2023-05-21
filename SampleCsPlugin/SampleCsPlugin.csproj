@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<Title>Shimmy</Title>
+		<Description>Allows you to shim a Rhino plugin to allow for debugging a target plugin without restarting the environment.</Description>
+		<!--<TargetExt>.rhp</TargetExt>-->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="EmbeddedResources\**\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="RhinoCommon" Version="7.18.22124.3001" IncludeAssets="compile;build" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="$(Configuration) == 'Debug' AND $([MSBuild]::IsOSPlatform(Windows))">
+		<StartProgram>C:\Program Files\Rhino 7\System\Rhino.exe</StartProgram>
+		<StartArguments></StartArguments>
+		<StartAction>Program</StartAction>
+	</PropertyGroup>
+	<Target Name="CopyFiles" AfterTargets="AfterBuild">
+		<!-- 
+				TODO: Have msbuild create two copies of your target plugin.
+				_ShimCopy should be in the parent folder structure of PluginShim
+				You may have to navigate two (..\..\_ShimCopy) or three folders up 
+				(..\..\..\_ShimCopy) to reach a common parent folder.
+      
+				Rhino should get it's own copy.  That way your project can compile 
+				without failing while Rhino	holds a reference to the to the rhp.  
+				You will get a warning message that msbuild failed to copy and 
+				rename the file in Rhino's folder.
+   -->
+		<CreateItem Include="bin\**\*.*">
+			<Output TaskParameter="Include" ItemName="Copies" />
+		</CreateItem>
+
+		<Copy SourceFiles="@(Copies)" DestinationFolder="..\_ShimCopy\">
+			<Output TaskParameter="CopiedFiles" ItemName="ShimCopy" />
+		</Copy>
+
+		<Copy SourceFiles="@(Copies)" DestinationFolder="..\_RhinoCopy\">
+			<Output TaskParameter="CopiedFiles" ItemName="RhinoCopy" />
+		</Copy>
+
+		<Move SourceFiles="..\_RhinoCopy\SampleCsPlugin.dll" DestinationFiles="..\_RhinoCopy\SampleCsPlugin.rhp" />
+
+		<Message Text="source files: @(Copies)" />
+		<Message Text="changed: @(ShimCopy)" Importance="high" />
+		<Message Text="changed: @(RhinoCopy)" Importance="high" />
+
+	</Target>
+</Project>

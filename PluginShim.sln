@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginShim", "PluginShim\PluginShim.csproj", "{535584C4-0871-4E14-8301-39B971DDFCE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "Plugin\Plugin.csproj", "{15A8E76D-576B-4F03-8755-B11678FE9D0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCsPlugin", "SampleCsPlugin\SampleCsPlugin.csproj", "{15A8E76D-576B-4F03-8755-B11678FE9D0D}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SampleFsPlugin", "SampleFsPlugin\SampleFsPlugin.fsproj", "{3512568A-B077-4BA7-9D29-C3038387CD2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{15A8E76D-576B-4F03-8755-B11678FE9D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15A8E76D-576B-4F03-8755-B11678FE9D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15A8E76D-576B-4F03-8755-B11678FE9D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3512568A-B077-4BA7-9D29-C3038387CD2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3512568A-B077-4BA7-9D29-C3038387CD2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3512568A-B077-4BA7-9D29-C3038387CD2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3512568A-B077-4BA7-9D29-C3038387CD2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
