@@ -3,16 +3,16 @@
 
     #region Don't touch, you only need one
 
-    public class Plugin : Rhino.PlugIns.PlugIn
+    public class PluginShim : Rhino.PlugIns.PlugIn
 
     {
-        public Plugin()
+        public PluginShim()
         {
             Instance = this;
         }
 
 
-        public static Plugin Instance
+        public static PluginShim Instance
         {
             get; private set;
         }
